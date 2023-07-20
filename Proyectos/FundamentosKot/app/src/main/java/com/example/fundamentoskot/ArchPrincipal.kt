@@ -19,8 +19,6 @@ fun main() {
     var objNull: Any? = null
     println(objNull)
 
-
-
 }
 
 fun newTopic(topic: String) {

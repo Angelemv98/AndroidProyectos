@@ -99,4 +99,14 @@
     <string name="card_toggle_red">Red</string>
     <string name="card_toggle_blue">Blue</string>
     <string name="card_toggle_green">Green</string>
+    <string name="msjExitoso">Evento de snackbar</string>
+    <string name="card_buying">Comprando!</string>
+    <string name="card_to_go">Ir</string>
+    <string name="card_historial">Historial</string>
+    <string name="focus_lost">Foco perdido</string>
+    <string name="card_required">Se requiere que este lleno este campo</string>
+    <string name="unvalid_url">URL Invalida</string>
+    <string name="card_Hide_bar">Esconder barra</string>
+    <string name="show_bar">Mostrar Barra</string>
+    <string name="mail_ex">elianec13@gmail.com</string>
 </resources>

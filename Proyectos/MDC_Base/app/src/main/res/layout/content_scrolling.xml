@@ -9,12 +9,13 @@
     tools:showIn="@layout/activity_scrolling">
 
     <LinearLayout
-        android:layout_marginBottom="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="?attr/actionBarSize"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvAD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/common_paddin_min"
@@ -165,6 +166,43 @@
                     app:layout_constraintStart_toStartOf="@id/tvtittlealt"
                     app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/msSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/show_bar"
+                    app:layout_constraintEnd_toEndOf="@id/tvtittlealt"
+                    app:layout_constraintTop_toBottomOf="@id/cbEnabled"
+                    app:layout_constraintTop_toTopOf="@id/cbEnabled"
+                    />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderVol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/tvtittlealt"
+                    app:layout_constraintStart_toStartOf="@id/tvtittlealt"
+                    android:valueFrom="0.0"
+                    android:valueTo="10.0"
+                    android:value="6.0"
+                    android:stepSize="2.0"
+                    app:layout_constraintTop_toBottomOf="@+id/cbEnabled"
+                    />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/tvtittlealt"
+                    app:layout_constraintEnd_toEndOf="@id/tvtittlealt"
+                    app:layout_constraintTop_toBottomOf="@id/sliderVol"
+                    android:text="@string/mail_ex"
+                    app:closeIconEnabled="true"
+                    android:checkable="true"
+                    />
+
+
                 <View
                     android:id="@+id/divider"
                     android:layout_width="0dp"
@@ -173,7 +211,7 @@
                     android:background="@color/color_divider"
                     app:layout_constraintEnd_toEndOf="@id/tvtittlealt"
                     app:layout_constraintStart_toStartOf="@id/tvtittlealt"
-                    app:layout_constraintTop_toBottomOf="@id/cbEnabled" />
+                    app:layout_constraintTop_toBottomOf="@id/chipEmail" />
 
 
                 <TextView
@@ -208,7 +246,8 @@
                     android:layout_marginTop="@dimen/common_paddin_def"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMessageAlt">
+                    app:layout_constraintTop_toBottomOf="@id/tvMessageAlt"
+                    app:singleSelection="true">
 
                     <Button
                         android:id="@+id/btnRed"
@@ -233,17 +272,17 @@
 
 
                 </com.google.android.material.button.MaterialButtonToggleGroup>
+
                 <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/card_btnSkip"
                     android:layout_marginTop="@dimen/common_paddin_middle"
                     android:layout_marginBottom="@dimen/common_paddin_min"
-                    app:layout_constraintEnd_toEndOf="@id/tvMessageAlt"
-                    app:layout_constraintTop_toBottomOf="@id/togglebutton"
+                    android:text="@string/card_btnSkip"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    />
+                    app:layout_constraintEnd_toEndOf="@id/tvMessageAlt"
+                    app:layout_constraintTop_toBottomOf="@id/togglebutton" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

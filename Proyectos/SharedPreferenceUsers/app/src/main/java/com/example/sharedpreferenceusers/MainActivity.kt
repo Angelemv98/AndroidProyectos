@@ -4,12 +4,11 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sharedpreferenceusers.databinding.ActivityMainBinding
-import com.example.sharedpreferenceusers.databinding.DialogRegisterBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 
@@ -35,14 +34,28 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 .setView(dialogView)
                 .setCancelable(false)
                 .setPositiveButton(R.string.dialog_confirm) { _, _ ->
+
                     val username =
                         dialogView.findViewById<TextInputEditText>(R.id.etUserName).text.toString()
-                    with(preferences.edit()) {
-                        putBoolean(getString(R.string.sp_first_time), false)
-                        putString(getString(R.string.sp_username), username)
-                            .apply()
+
+                    if (username == "" || username.isBlank() || username.isEmpty()) {
+                        Toast.makeText(this, R.string.dialog_error, Toast.LENGTH_SHORT).show()
+                    } else {
+                        with(preferences.edit()) {
+                            putBoolean(getString(R.string.sp_first_time), false)
+                            putString(getString(R.string.sp_username), username).apply()
+                        }
+                        Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
                     }
-                }.show()
+
+                }
+                .setNeutralButton(R.string.dialog_invitado, null).show()
+        } else {
+            val username = preferences.getString(
+                getString(R.string.sp_username),
+                getString(R.string.hint_username)
+            )
+            Toast.makeText(this, "Bienvenido $username", Toast.LENGTH_SHORT).show()
         }
 
 
@@ -55,6 +68,19 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             layoutManager = linearLayoutManager
             adapter = userAdapter
         }
+        val swipeHelper = ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean = false
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                userAdapter.remove(viewHolder.adapterPosition)
+            }
+        })
+        swipeHelper.attachToRecyclerView(binding.recyclerView)
+
     }
 
     private fun getUsers(): MutableList<User> {

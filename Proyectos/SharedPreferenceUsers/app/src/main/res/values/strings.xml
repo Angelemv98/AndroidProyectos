@@ -7,4 +7,6 @@
     <string name="helper_username">Obligatorio</string>
     <string name="hint_username">Nombre de usuario</string>
     <string name="sp_username">username</string>
+    <string name="dialog_invitado">Invitado</string>
+    <string name="dialog_error">Error, ingresa datos validos</string>
 </resources>

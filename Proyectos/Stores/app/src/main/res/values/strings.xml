@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Tiendas</string>
+    <string name="description_img_photo">Image of the store</string>
+    <string name="store_fab">Create store</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name_store">Name Store</string>
+    <string name="helper_rquiered">Requerido</string>
+    <string name="hint_phone">Telefono</string>
+    <string name="hint_website_url">URL del sitio Web</string>
+    <string name="hint_photo_url">URL de la imagen</string>
+    <string name="edit_store_tittle_add">Agregar tienda</string>
+    <string name="menu_save">Save</string>
+    <string name="succes_created_store">Tienda agregada correctamente</string>
+</resources>
